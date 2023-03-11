@@ -15,7 +15,7 @@ class AddRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
     @IBOutlet weak var recipeIngredients: UITextView!
     @IBOutlet weak var recipeDirection: UITextView!
     @IBOutlet weak var recipeImage: UIImageView!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -91,30 +91,40 @@ class AddRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
     @objc func selectImageWithAlert() {
         let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         ac.message = "Select Image"
-        ac.addAction(UIAlertAction(title: "Choose from library", style: .default, handler: { _ in
+        
+        //MARK: - Actions
+        
+        let libraryAction = UIAlertAction(title: "Choose from library", style: .default) { a in
             let picker = UIImagePickerController()
             picker.delegate = self
             picker.sourceType = .photoLibrary
             picker.allowsEditing = true
             self.present(picker, animated: true)
-        }))
-        ac.addAction(UIAlertAction(title: "Take a photo", style: .default, handler: { _ in
+        }
+        libraryAction.setValue(UIImage(systemName: "photo.on.rectangle.angled"), forKey: "image")
+        
+        let cameraAction = UIAlertAction(title: "Take a photo", style: .default) { _ in
             let picker = UIImagePickerController()
             picker.delegate = self
             picker.sourceType = .camera
             picker.allowsEditing = true
             self.present(picker, animated: true)
-        }))
+        }
+        cameraAction.setValue(UIImage(systemName: "camera"), forKey: "image")
         
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+
+        ac.addAction(libraryAction)
+        ac.addAction(cameraAction)
+        ac.addAction(cancelAction)
+
         if recipeImage.image == UIImage(named: "add") {
             print("not selected")
         } else {
-            ac.addAction(UIAlertAction(title: "Delete selected image", style: .default, handler: { _ in
+            ac.addAction(UIAlertAction(title: "Delete selected image", style: .destructive, handler: { _ in
                 self.recipeImage.image = UIImage(named: "add")
             }))
         }
-        
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
     }
 
