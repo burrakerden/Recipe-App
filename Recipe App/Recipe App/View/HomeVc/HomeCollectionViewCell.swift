@@ -9,6 +9,9 @@ import UIKit
 
 class HomeCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var homeImage: UIImageView!
+    @IBOutlet weak var homeName: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

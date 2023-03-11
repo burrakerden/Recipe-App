@@ -10,6 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailVC" customModule="Recipe_App" customModuleProvider="target">
             <connections>
+                <outlet property="detailDescription" destination="BrV-PE-LBv" id="rOU-Hc-AVt"/>
+                <outlet property="detailDirections" destination="ghC-Oi-tgE" id="S7s-Zo-oCv"/>
+                <outlet property="detailImage" destination="HiU-Md-wYb" id="8Je-ZA-s8R"/>
+                <outlet property="detailIngredients" destination="MBe-56-QuC" id="ly2-cL-taC"/>
+                <outlet property="detailName" destination="Qxj-xd-K8a" id="m6y-gm-1wr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,12 +22,117 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xN2-ht-Srr">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZi-eQ-pHP" userLabel="Content View">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="1911.6666666666667"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="best-soup-recipes-1660232265" translatesAutoresizingMaskIntoConstraints="NO" id="HiU-Md-wYb">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="340"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="340" id="jd3-B6-D7o"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Creamy Carrot Soup" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qxj-xd-K8a">
+                                    <rect key="frame" x="12" y="364" width="369" height="38.333333333333314"/>
+                                    <fontDescription key="fontDescription" name="AlNile-Bold" family="Al Nile" pointSize="28"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BrV-PE-LBv">
+                                    <rect key="frame" x="12" y="414.33333333333331" width="369" height="133.66666666666669"/>
+                                    <string key="text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationserunt mollit anim id est laborum.ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationserunt mollit anim id est laborum."</string>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QO9-B8-Vc4">
+                                    <rect key="frame" x="12" y="564" width="369" height="22"/>
+                                    <fontDescription key="fontDescription" name="AlNile-Bold" family="Al Nile" pointSize="16"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBe-56-QuC">
+                                    <rect key="frame" x="12" y="590" width="369" height="76.666666666666629"/>
+                                    <string key="text">Label
+Label
+Label
+Label</string>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Directions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zis-1i-BLt">
+                                    <rect key="frame" x="12" y="682.66666666666663" width="369" height="22"/>
+                                    <fontDescription key="fontDescription" name="AlNile-Bold" family="Al Nile" pointSize="16"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghC-Oi-tgE">
+                                    <rect key="frame" x="12" y="708.66666666666652" width="369" height="1203"/>
+                                    <mutableString key="text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationserunt mollit anim id est laborum.ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationserunt mollit anim id est laborum.""Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationserunt mollit anim id est laborum.ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationserunt mollit anim id est laborum.""Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationserunt mollit anim id est laborum.ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationserunt mollit anim id est laborum.""Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationserunt mollit anim id est laborum.ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationserunt mollit anim id est laborum.""Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationserunt mollit anim id est laborum.ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationserunt mollit anim id est laborum.""Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationserunt mollit anim id est laborum.ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationserunt mollit anim id est laborum."smod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationserunt mollit anim id est laborum.ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationserunt mollit anim id est laborum.""Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationserunt mollit anim id est laborum.ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationserunt mollit anim id est laborum."</mutableString>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="Zis-1i-BLt" firstAttribute="leading" secondItem="KZi-eQ-pHP" secondAttribute="leading" constant="12" id="0Ag-hz-dkH"/>
+                                <constraint firstItem="BrV-PE-LBv" firstAttribute="top" secondItem="Qxj-xd-K8a" secondAttribute="bottom" constant="12" id="0Ny-se-FUT"/>
+                                <constraint firstAttribute="trailing" secondItem="HiU-Md-wYb" secondAttribute="trailing" id="4LN-Z8-Tj5"/>
+                                <constraint firstItem="MBe-56-QuC" firstAttribute="leading" secondItem="KZi-eQ-pHP" secondAttribute="leading" constant="12" id="Aq2-z8-aHL"/>
+                                <constraint firstItem="Qxj-xd-K8a" firstAttribute="top" secondItem="HiU-Md-wYb" secondAttribute="bottom" constant="24" id="BBk-em-sDy"/>
+                                <constraint firstItem="MBe-56-QuC" firstAttribute="top" secondItem="QO9-B8-Vc4" secondAttribute="bottom" constant="4" id="IbY-Xq-rpl"/>
+                                <constraint firstItem="Zis-1i-BLt" firstAttribute="top" secondItem="MBe-56-QuC" secondAttribute="bottom" constant="16" id="QNr-Ta-Dqc"/>
+                                <constraint firstItem="ghC-Oi-tgE" firstAttribute="leading" secondItem="KZi-eQ-pHP" secondAttribute="leading" constant="12" id="SBe-dH-AMm"/>
+                                <constraint firstAttribute="trailing" secondItem="ghC-Oi-tgE" secondAttribute="trailing" constant="12" id="T6p-ZT-XOO"/>
+                                <constraint firstItem="HiU-Md-wYb" firstAttribute="leading" secondItem="KZi-eQ-pHP" secondAttribute="leading" id="UM9-qY-Rti"/>
+                                <constraint firstItem="Qxj-xd-K8a" firstAttribute="leading" secondItem="KZi-eQ-pHP" secondAttribute="leading" constant="12" id="Ve0-CG-9mP"/>
+                                <constraint firstItem="ghC-Oi-tgE" firstAttribute="top" secondItem="Zis-1i-BLt" secondAttribute="bottom" constant="4" id="bvl-eO-SJ3"/>
+                                <constraint firstItem="BrV-PE-LBv" firstAttribute="leading" secondItem="KZi-eQ-pHP" secondAttribute="leading" constant="12" id="cWN-47-JO5"/>
+                                <constraint firstItem="HiU-Md-wYb" firstAttribute="top" secondItem="KZi-eQ-pHP" secondAttribute="top" id="cpn-YV-pYb"/>
+                                <constraint firstAttribute="trailing" secondItem="Qxj-xd-K8a" secondAttribute="trailing" constant="12" id="inX-wB-aHQ"/>
+                                <constraint firstAttribute="trailing" secondItem="BrV-PE-LBv" secondAttribute="trailing" constant="12" id="mJf-TA-AgL"/>
+                                <constraint firstItem="QO9-B8-Vc4" firstAttribute="leading" secondItem="KZi-eQ-pHP" secondAttribute="leading" constant="12" id="nbZ-PP-FKK"/>
+                                <constraint firstAttribute="trailing" secondItem="Zis-1i-BLt" secondAttribute="trailing" constant="12" id="pdK-yb-fDj"/>
+                                <constraint firstAttribute="trailing" secondItem="MBe-56-QuC" secondAttribute="trailing" constant="12" id="qu8-fO-PJd"/>
+                                <constraint firstAttribute="trailing" secondItem="QO9-B8-Vc4" secondAttribute="trailing" constant="12" id="rna-wv-Id1"/>
+                                <constraint firstItem="QO9-B8-Vc4" firstAttribute="top" secondItem="BrV-PE-LBv" secondAttribute="bottom" constant="16" id="uso-a0-apf"/>
+                                <constraint firstAttribute="bottom" secondItem="ghC-Oi-tgE" secondAttribute="bottom" id="xog-RL-KoH"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="KZi-eQ-pHP" firstAttribute="width" secondItem="fdR-hU-6h3" secondAttribute="width" id="FPB-iS-7qf"/>
+                        <constraint firstItem="KZi-eQ-pHP" firstAttribute="top" secondItem="6A7-Jb-Rb5" secondAttribute="top" id="Rfn-2b-YWz"/>
+                        <constraint firstItem="KZi-eQ-pHP" firstAttribute="trailing" secondItem="6A7-Jb-Rb5" secondAttribute="trailing" id="Wgt-eB-FVL"/>
+                        <constraint firstItem="KZi-eQ-pHP" firstAttribute="bottom" secondItem="6A7-Jb-Rb5" secondAttribute="bottom" id="dtq-tv-hCW"/>
+                        <constraint firstItem="KZi-eQ-pHP" firstAttribute="leading" secondItem="6A7-Jb-Rb5" secondAttribute="leading" id="wVR-aT-PRE"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="6A7-Jb-Rb5"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="fdR-hU-6h3"/>
+                </scrollView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemGray6Color"/>
-            <point key="canvasLocation" x="83" y="20"/>
+            <constraints>
+                <constraint firstItem="xN2-ht-Srr" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="970-sK-Y60"/>
+                <constraint firstItem="xN2-ht-Srr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CoW-at-a6c"/>
+                <constraint firstItem="xN2-ht-Srr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="SKe-PV-j8b"/>
+                <constraint firstAttribute="bottom" secondItem="xN2-ht-Srr" secondAttribute="bottom" id="uhd-Jx-Pf0"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="81.679389312977094" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>
+        <image name="best-soup-recipes-1660232265" width="980" height="654"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

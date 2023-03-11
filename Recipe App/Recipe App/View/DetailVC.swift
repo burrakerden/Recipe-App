@@ -8,22 +8,38 @@
 import UIKit
 
 class DetailVC: UIViewController {
-
+    
+    var favBut = FavoriteButton()
+    
+    @IBOutlet weak var detailImage: UIImageView!
+    @IBOutlet weak var detailName: UILabel!
+    @IBOutlet weak var detailDescription: UILabel!
+    @IBOutlet weak var detailIngredients: UILabel!
+    @IBOutlet weak var detailDirections: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupUI()
+        
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
-    */
-
+    
+    func setupUI() {
+        navigationController?.navigationBar.tintColor = .systemGray
+        favButton()
+    }
+    
+    func favButton() {
+        
+        let favoriteButton = FavoriteButton(frame: CGRect(x: 340, y: 380, width: 44, height: 44))
+        view.addSubview(favoriteButton)
+        favoriteButton.addTarget(self, action: #selector(test), for: .allTouchEvents)
+    }
+    
+    @objc func test() {
+        print(favBut.isFavorite)
+    }
 }

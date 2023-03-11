@@ -13,6 +13,10 @@ class CategoriesVC: UIViewController {
     
     @IBOutlet weak var categoriesTableView: UITableView!
 
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -39,7 +43,10 @@ extension CategoriesVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        let vc = HomeVC()
+        vc.navTitle = categories[indexPath.row]
+        vc.testArray = categories
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     

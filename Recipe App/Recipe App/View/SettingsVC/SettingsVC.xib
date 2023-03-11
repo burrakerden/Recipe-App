@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsVC" customModule="Recipe_App" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="8001069" translatesAutoresizingMaskIntoConstraints="NO" id="4Mx-sM-kN9">
+                    <rect key="frame" x="101.66666666666669" y="79" width="190" height="190"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="190" id="OgB-VG-lhC"/>
+                        <constraint firstAttribute="width" constant="190" id="c0O-qr-YlK"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <integer key="value" value="50"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v1.0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Nn-eG-bon">
+                    <rect key="frame" x="16" y="49" width="44" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="2tl-BQ-93i"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2s-jz-sso">
+                    <rect key="frame" x="157" y="703" width="79" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="79" id="3P3-Jc-MTu"/>
+                        <constraint firstAttribute="height" constant="35" id="nwq-8b-i6J"/>
+                    </constraints>
+                    <color key="tintColor" systemColor="systemRedColor"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="gray" title="Logout">
+                        <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="17"/>
+                        <color key="baseForegroundColor" systemColor="labelColor"/>
+                    </buttonConfiguration>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dev.burakerden@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kvi-pD-PU2">
+                    <rect key="frame" x="90.666666666666686" y="329" width="212" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="212" id="b0R-8e-HX2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="4Mx-sM-kN9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Byd-Gq-U3l"/>
+                <constraint firstItem="6Nn-eG-bon" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="-10" id="Eht-VM-o8p"/>
+                <constraint firstItem="6Nn-eG-bon" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="dns-B5-K4E"/>
+                <constraint firstItem="Kvi-pD-PU2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hPk-j3-72A"/>
+                <constraint firstItem="Kvi-pD-PU2" firstAttribute="top" secondItem="4Mx-sM-kN9" secondAttribute="bottom" constant="60" id="ltM-lk-UXr"/>
+                <constraint firstItem="g2s-jz-sso" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="oAM-uq-81w"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="g2s-jz-sso" secondAttribute="bottom" constant="80" id="rog-cA-dko"/>
+                <constraint firstItem="4Mx-sM-kN9" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="zfU-wU-OYR"/>
+            </constraints>
+            <point key="canvasLocation" x="-89.312977099236633" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="8001069" width="512" height="512"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

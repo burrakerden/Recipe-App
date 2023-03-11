@@ -18,7 +18,29 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T5y-7K-SQg">
                         <rect key="frame" x="0.0" y="0.0" width="160" height="216"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="best-soup-recipes-1660232265" translatesAutoresizingMaskIntoConstraints="NO" id="80Z-0q-ubf">
+                                <rect key="frame" x="0.0" y="0.0" width="160" height="216"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Creamy Carrot Soup" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fod-wn-vtp">
+                                <rect key="frame" x="0.0" y="152.66666666666666" width="160" height="51.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="-1"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="80Z-0q-ubf" secondAttribute="bottom" id="2i7-29-y2l"/>
+                            <constraint firstItem="80Z-0q-ubf" firstAttribute="top" secondItem="T5y-7K-SQg" secondAttribute="top" id="QMh-pq-3Kt"/>
+                            <constraint firstAttribute="bottom" secondItem="Fod-wn-vtp" secondAttribute="bottom" constant="12" id="QqM-uB-9Ww"/>
+                            <constraint firstItem="Fod-wn-vtp" firstAttribute="leading" secondItem="T5y-7K-SQg" secondAttribute="leading" id="Zzx-Ln-9tR"/>
+                            <constraint firstItem="80Z-0q-ubf" firstAttribute="leading" secondItem="T5y-7K-SQg" secondAttribute="leading" id="iJW-ZO-GqN"/>
+                            <constraint firstAttribute="trailing" secondItem="80Z-0q-ubf" secondAttribute="trailing" id="pdm-I8-euA"/>
+                            <constraint firstAttribute="trailing" secondItem="Fod-wn-vtp" secondAttribute="trailing" id="yXV-PD-36h"/>
+                        </constraints>
                     </view>
                 </subviews>
             </view>
@@ -35,7 +57,14 @@
                     <integer key="value" value="12"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="homeImage" destination="80Z-0q-ubf" id="anM-2g-qCe"/>
+                <outlet property="homeName" destination="Fod-wn-vtp" id="FsR-5s-ARD"/>
+            </connections>
             <point key="canvasLocation" x="134.35114503816794" y="38.380281690140848"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="best-soup-recipes-1660232265" width="980" height="654"/>
+    </resources>
 </document>
