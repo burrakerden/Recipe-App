@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HomeVC: UIViewController {
-
+    
     @IBOutlet weak var homeCollectionView: UICollectionView!
     @IBOutlet weak var countLabel: UILabel!
+    
+    var model = ViewModel()
+    var recipeData = [Hit]()
     
     var navTitle = "My Recipes"
     
@@ -19,13 +23,15 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        bind(searchText: "chicken")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = true
-        print(navTitle)
     }
-
+    
+    //MARK: - Config
+    
     func setupUI() {
         navigationItem.title = navTitle
         countLabel.text = "\(testArray.count) Recipes"
@@ -33,19 +39,35 @@ class HomeVC: UIViewController {
         homeCollectionView.dataSource = self
         homeCollectionView.register(UINib(nibName: "HomeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "HomeCollectionViewCell")
         navigationController?.navigationBar.tintColor = .systemGray
-
+        
+    }
+    
+    //MARK: - GET DATA
+    
+    func bind(searchText: String) {
+        model.getRecipeData(searchText: searchText)
+        model.hits = {[weak self] value in
+            guard let self = self else {return}
+            DispatchQueue.main.async {
+                self.homeCollectionView.reloadData()
+                self.recipeData = value
+            }
+        }
     }
     
 }
 
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        testArray.count
+        recipeData.count
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell: HomeCollectionViewCell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath) as? HomeCollectionViewCell else {return UICollectionViewCell()}
-        cell.homeName.text = testArray[indexPath.row]
+        let mainData = recipeData[indexPath.row].recipe
+        cell.homeName.text = mainData?.label
+        if let url = mainData?.image {
+            cell.homeImage.kf.setImage(with: URL(string: url))
+        }
         return cell
     }
     

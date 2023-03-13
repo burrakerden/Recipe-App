@@ -94,16 +94,7 @@ class AddRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
         
         //MARK: - Actions
         
-        let libraryAction = UIAlertAction(title: "Choose from library", style: .default) { a in
-            let picker = UIImagePickerController()
-            picker.delegate = self
-            picker.sourceType = .photoLibrary
-            picker.allowsEditing = true
-            self.present(picker, animated: true)
-        }
-        libraryAction.setValue(UIImage(systemName: "photo.on.rectangle.angled"), forKey: "image")
-        
-        let cameraAction = UIAlertAction(title: "Take a photo", style: .default) { _ in
+        let cameraAction = UIAlertAction(title: "Open Camera", style: .default) { _ in
             let picker = UIImagePickerController()
             picker.delegate = self
             picker.sourceType = .camera
@@ -112,10 +103,21 @@ class AddRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
         }
         cameraAction.setValue(UIImage(systemName: "camera"), forKey: "image")
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let libraryAction = UIAlertAction(title: "Choose From Library", style: .default) { a in
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.sourceType = .photoLibrary
+            picker.allowsEditing = true
+            self.present(picker, animated: true)
+        }
+        libraryAction.setValue(UIImage(systemName: "photo"), forKey: "image")
+        
 
-        ac.addAction(libraryAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
         ac.addAction(cameraAction)
+        ac.addAction(libraryAction)
         ac.addAction(cancelAction)
 
         if recipeImage.image == UIImage(named: "add") {

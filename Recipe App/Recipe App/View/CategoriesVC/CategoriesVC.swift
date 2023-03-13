@@ -24,7 +24,6 @@ class CategoriesVC: UIViewController {
 
     func setupUI() {
         navigationItem.title = "Categories"
-        navigationController?.navigationBar.prefersLargeTitles = true
         categoriesTableView.delegate = self
         categoriesTableView.dataSource = self
         categoriesTableView.register(UINib(nibName: "CategoriesTableViewCell", bundle: nil), forCellReuseIdentifier: "CategoriesTableViewCell")
