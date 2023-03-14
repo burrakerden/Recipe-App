@@ -10,8 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC" customModule="Recipe_App" customModuleProvider="target">
             <connections>
-                <outlet property="countLabel" destination="8Sn-iK-Uli" id="f1S-Og-MN4"/>
                 <outlet property="homeCollectionView" destination="cCU-tV-MgY" id="eoI-nE-du7"/>
+                <outlet property="homeSearchBar" destination="dcv-cc-mlB" id="hBl-3J-cA6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,25 +30,24 @@
                         <inset key="sectionInset" minX="20" minY="18" maxX="20" maxY="18"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Sn-iK-Uli" userLabel="CountLabel">
-                    <rect key="frame" x="16" y="59" width="156" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="156" id="gGQ-mR-Ev0"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="dcv-cc-mlB">
+                    <rect key="frame" x="0.0" y="59" width="393" height="56"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="3Kp-7D-xVj"/>
+                    </connections>
+                </searchBar>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="dcv-cc-mlB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="3An-Xe-eGy"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cCU-tV-MgY" secondAttribute="trailing" constant="4" id="GA1-uB-iqu"/>
-                <constraint firstItem="8Sn-iK-Uli" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="KgI-cA-Z3X"/>
                 <constraint firstItem="cCU-tV-MgY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="4" id="Q37-59-wCc"/>
                 <constraint firstAttribute="bottom" secondItem="cCU-tV-MgY" secondAttribute="bottom" id="cYx-aq-hCy"/>
-                <constraint firstItem="8Sn-iK-Uli" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="i0I-HC-8Q4"/>
+                <constraint firstItem="dcv-cc-mlB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="jpU-eF-I1p"/>
                 <constraint firstItem="cCU-tV-MgY" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="36" id="obv-6W-g9r"/>
+                <constraint firstItem="dcv-cc-mlB" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="s2O-Gl-u99"/>
             </constraints>
             <point key="canvasLocation" x="46.564885496183201" y="20.422535211267608"/>
         </view>

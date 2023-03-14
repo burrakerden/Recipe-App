@@ -44,7 +44,6 @@ extension CategoriesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = HomeVC()
         vc.navTitle = categories[indexPath.row]
-        vc.testArray = categories
         navigationController?.pushViewController(vc, animated: true)
     }
     

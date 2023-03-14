@@ -35,14 +35,14 @@
                                 <color key="shadowColor" systemColor="systemGray3Color"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSY-ls-oB4" userLabel="Dish Type">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSY-ls-oB4" userLabel="Dish Type">
                                 <rect key="frame" x="4" y="164" width="72" height="11"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="9"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfr-8l-lUv" userLabel="Time">
-                                <rect key="frame" x="4" y="179" width="72" height="11"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfr-8l-lUv" userLabel="Source">
+                                <rect key="frame" x="4" y="201" width="72" height="11"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -78,12 +78,12 @@
                             <constraint firstAttribute="bottom" secondItem="80Z-0q-ubf" secondAttribute="bottom" constant="56" id="2i7-29-y2l"/>
                             <constraint firstItem="Fod-wn-vtp" firstAttribute="top" secondItem="80Z-0q-ubf" secondAttribute="bottom" constant="4" id="5cd-tz-bgw"/>
                             <constraint firstItem="Fod-wn-vtp" firstAttribute="leading" secondItem="rSY-ls-oB4" secondAttribute="trailing" id="6dI-fw-sXN"/>
-                            <constraint firstItem="wfr-8l-lUv" firstAttribute="top" secondItem="rSY-ls-oB4" secondAttribute="bottom" constant="4" id="Ju5-Bw-WYH"/>
                             <constraint firstItem="80Z-0q-ubf" firstAttribute="top" secondItem="T5y-7K-SQg" secondAttribute="top" id="QMh-pq-3Kt"/>
                             <constraint firstItem="zYB-TN-JnR" firstAttribute="top" secondItem="T5y-7K-SQg" secondAttribute="top" constant="4" id="TNz-UX-5JE"/>
                             <constraint firstItem="Fod-wn-vtp" firstAttribute="leading" secondItem="T5y-7K-SQg" secondAttribute="leading" constant="76" id="Zzx-Ln-9tR"/>
                             <constraint firstItem="Fod-wn-vtp" firstAttribute="leading" secondItem="wfr-8l-lUv" secondAttribute="trailing" id="d0L-r4-VJL"/>
                             <constraint firstItem="80Z-0q-ubf" firstAttribute="leading" secondItem="T5y-7K-SQg" secondAttribute="leading" id="iJW-ZO-GqN"/>
+                            <constraint firstAttribute="bottom" secondItem="wfr-8l-lUv" secondAttribute="bottom" constant="4" id="o84-kS-RrV"/>
                             <constraint firstAttribute="trailing" secondItem="80Z-0q-ubf" secondAttribute="trailing" id="pdm-I8-euA"/>
                             <constraint firstItem="wfr-8l-lUv" firstAttribute="leading" secondItem="T5y-7K-SQg" secondAttribute="leading" constant="4" id="qpO-s1-bcY"/>
                             <constraint firstItem="rSY-ls-oB4" firstAttribute="top" secondItem="80Z-0q-ubf" secondAttribute="bottom" constant="4" id="viG-li-9Sy"/>
@@ -111,7 +111,7 @@
                 <outlet property="homeImage" destination="80Z-0q-ubf" id="anM-2g-qCe"/>
                 <outlet property="homeKcal" destination="Rs1-xp-VQw" id="6oR-E3-1sz"/>
                 <outlet property="homeName" destination="Fod-wn-vtp" id="FsR-5s-ARD"/>
-                <outlet property="homeTotalTime" destination="wfr-8l-lUv" id="7Dv-3e-07x"/>
+                <outlet property="homeSource" destination="wfr-8l-lUv" id="7Dv-3e-07x"/>
             </connections>
             <point key="canvasLocation" x="134.35114503816794" y="38.028169014084511"/>
         </collectionViewCell>
