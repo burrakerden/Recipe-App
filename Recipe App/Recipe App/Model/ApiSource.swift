@@ -64,7 +64,6 @@ struct Recipe: Codable {
     let calories, totalWeight: Double?
     let totalTime: Int?
     let cuisineType: [String]?
-    let mealType: [MealType]?
     let dishType: [String]?
     let totalNutrients, totalDaily: [String: Total]?
     let digest: [Digest]?
@@ -134,11 +133,6 @@ struct Ingredient: Codable {
         case foodID = "foodId"
         case image
     }
-}
-
-enum MealType: String, Codable {
-    case brunch = "brunch"
-    case lunchDinner = "lunch/dinner"
 }
 
 // MARK: - Total

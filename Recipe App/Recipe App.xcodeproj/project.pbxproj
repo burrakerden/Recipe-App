@@ -41,6 +41,7 @@
 		96563ED329B9FE35000F0C8B /* CategoriesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96563ED129B9FE35000F0C8B /* CategoriesTableViewCell.xib */; };
 		9687423029BF471700637A3D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9687422F29BF471700637A3D /* ViewModel.swift */; };
 		9687423329BF4F6C00637A3D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9687423229BF4F6C00637A3D /* Kingfisher */; };
+		9687423529C0551E00637A3D /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9687423429C0551E00637A3D /* Pagination.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		96563ED029B9FE35000F0C8B /* CategoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewCell.swift; sourceTree = "<group>"; };
 		96563ED129B9FE35000F0C8B /* CategoriesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesTableViewCell.xib; sourceTree = "<group>"; };
 		9687422F29BF471700637A3D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		9687423429C0551E00637A3D /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				9636E94029BF403900403B1D /* Service.swift */,
+				9687423429C0551E00637A3D /* Pagination.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				9636E94429BF404E00403B1D /* ServiceManager.swift in Sources */,
 				96563EAF29B9E2D2000F0C8B /* HomeVC.swift in Sources */,
 				96563E9529B9E103000F0C8B /* SceneDelegate.swift in Sources */,
+				9687423529C0551E00637A3D /* Pagination.swift in Sources */,
 				96563E9D29B9E103000F0C8B /* Recipe_App.xcdatamodeld in Sources */,
 				96563EBF29B9E4CD000F0C8B /* SettingsVC.swift in Sources */,
 			);

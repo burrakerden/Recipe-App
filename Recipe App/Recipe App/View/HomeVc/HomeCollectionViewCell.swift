@@ -11,6 +11,9 @@ class HomeCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var homeImage: UIImageView!
     @IBOutlet weak var homeName: UILabel!
+    @IBOutlet weak var homeDishType: UILabel!
+    @IBOutlet weak var homeTotalTime: UILabel!
+    @IBOutlet weak var homeKcal: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
