@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoriesVC" customModule="Recipe_App" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC" customModule="Recipe_App" customModuleProvider="target">
             <connections>
                 <outlet property="categoriesTableView" destination="hSM-oe-kem" id="y8N-EL-weR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -19,8 +19,8 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hSM-oe-kem">
-                    <rect key="frame" x="16" y="63" width="361" height="755"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="108" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hSM-oe-kem">
+                    <rect key="frame" x="6" y="63" width="371" height="755"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <color key="separatorColor" systemColor="systemGray5Color"/>
                 </tableView>
@@ -29,7 +29,7 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="hSM-oe-kem" secondAttribute="bottom" id="49D-Fj-7Lf"/>
-                <constraint firstItem="hSM-oe-kem" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Ceq-3H-GRP"/>
+                <constraint firstItem="hSM-oe-kem" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="6" id="Ceq-3H-GRP"/>
                 <constraint firstItem="hSM-oe-kem" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="4" id="pnv-k5-Mxi"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hSM-oe-kem" secondAttribute="trailing" constant="16" id="vF5-gr-sIF"/>
             </constraints>

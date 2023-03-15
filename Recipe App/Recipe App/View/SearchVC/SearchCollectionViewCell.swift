@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeCollectionViewCell: UICollectionViewCell {
+class SearchCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var homeImage: UIImageView!
     @IBOutlet weak var homeName: UILabel!

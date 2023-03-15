@@ -7,8 +7,14 @@
 
 import UIKit
 
-class CategoriesTableViewCell: UITableViewCell {
-
+class HomeTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var tableImage: UIImageView!
+    @IBOutlet weak var tableName: UILabel!
+    @IBOutlet weak var tableDishType: UILabel!
+    @IBOutlet weak var tableSource: UILabel!
+    @IBOutlet weak var tableKcal: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

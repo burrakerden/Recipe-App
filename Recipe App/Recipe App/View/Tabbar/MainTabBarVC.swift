@@ -29,17 +29,17 @@ class MainTabBarVC: UITabBarController {
     
     func setupUI() {
         let vc1 = UINavigationController(rootViewController: HomeVC())
-        let vc2 = UINavigationController(rootViewController: CategoriesVC())
+        let vc2 = UINavigationController(rootViewController: SearchVC())
         let vc3 = UINavigationController(rootViewController: NewVC())
         let vc4 = UINavigationController(rootViewController: FavoritesVC())
         let vc5 = UINavigationController(rootViewController: SettingsVC())
         vc1.tabBarItem.image = UIImage(systemName: "house.fill")
-        vc2.tabBarItem.image = UIImage(systemName: "list.bullet.clipboard.fill")
+        vc2.tabBarItem.image = UIImage(systemName: "magnifyingglass")
         vc3.tabBarItem.image = UIImage(systemName: "plus.square.fill")
         vc4.tabBarItem.image = UIImage(systemName: "heart.fill")
         vc5.tabBarItem.image = UIImage(systemName: "person.crop.square.fill")
         vc1.title = "Home"
-        vc2.title = "Categories"
+        vc2.title = "Search"
         vc3.title = "New"
         vc4.title = "Favorites"
         vc5.title = "Settings"

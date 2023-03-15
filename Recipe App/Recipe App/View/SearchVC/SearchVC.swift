@@ -8,17 +8,17 @@
 import UIKit
 import Kingfisher
 
-class HomeVC: UIViewController {
+class SearchVC: UIViewController {
     
-    @IBOutlet weak var homeCollectionView: UICollectionView!
-    @IBOutlet weak var homeSearchBar: UISearchBar!
+    @IBOutlet weak var searchCollectionView: UICollectionView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var timer: Timer?
     
     var model = ViewModel()
     var recipeData = [Hit]()
     var nextPageURL = ""
-    var navTitle = "My Recipes"
+    var navTitle = "Search"
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,18 +26,19 @@ class HomeVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.isNavigationBarHidden = true
+//        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     //MARK: - Config
     
     func setupUI() {
         navigationItem.title = navTitle
-        homeCollectionView.delegate = self
-        homeCollectionView.dataSource = self
+        searchCollectionView.delegate = self
+        searchCollectionView.dataSource = self
         tabBarController?.delegate = self
-        homeSearchBar.delegate = self
-        homeCollectionView.register(UINib(nibName: "HomeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "HomeCollectionViewCell")
+        searchBar.delegate = self
+        searchCollectionView.register(UINib(nibName: "SearchCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SearchCollectionViewCell")
         navigationController?.navigationBar.tintColor = .systemGray
     }
     
@@ -49,7 +50,7 @@ class HomeVC: UIViewController {
             guard let self = self else {return}
             DispatchQueue.main.async {
                 self.recipeData = value
-                self.homeCollectionView.reloadData()
+                self.searchCollectionView.reloadData()
             }
         }
         model.nextPage = {[weak self] value in
@@ -58,17 +59,17 @@ class HomeVC: UIViewController {
         }
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        homeSearchBar.endEditing(true)
-    }
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        searchBar.endEditing(true)
+//    }
 }
 
-extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
+extension SearchVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         recipeData.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell: HomeCollectionViewCell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath) as? HomeCollectionViewCell else {return UICollectionViewCell()}
+        guard let cell: SearchCollectionViewCell = searchCollectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath) as? SearchCollectionViewCell else {return UICollectionViewCell()}
         let mainData = recipeData[indexPath.row].recipe
         cell.homeName.text = mainData?.label
         cell.homeDishType.text = mainData?.dishType?[0].capitalized
@@ -89,6 +90,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = DetailVC()
+        vc.recipeData = recipeData[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -99,7 +101,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
                 guard let self = self else {return}
                 DispatchQueue.main.async {
                     self.recipeData.append(contentsOf: value)
-                    self.homeCollectionView.reloadData()
+                    self.searchCollectionView.reloadData()
                 }
             }
             model.nextPage = {[weak self] value in
@@ -112,29 +114,29 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
 }
 
 //MARK: - Tab Bar
-extension HomeVC: UITabBarControllerDelegate {
+extension SearchVC: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        homeCollectionView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: true)
+        searchCollectionView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: true)
     }
 }
 
 
 // MARK: - Search Bar
 
-extension HomeVC: UISearchBarDelegate {
+extension SearchVC: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        homeSearchBar.resignFirstResponder()
+        searchBar.resignFirstResponder()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         timer?.invalidate()
 
-        timer = Timer.scheduledTimer(withTimeInterval: 0.7, repeats: false, block: { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 0.45, repeats: false, block: { _ in
             if searchText.count > 3 {
                 DispatchQueue.main.async {
                     self.bind(searchText: searchText.replacingOccurrences(of: " ", with: "+"))
-                    self.homeCollectionView.reloadData()
+                    self.searchCollectionView.reloadData()
                     print(searchText)
                 }
                 self.recipeData.removeAll()
