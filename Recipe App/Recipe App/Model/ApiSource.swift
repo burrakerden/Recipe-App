@@ -65,6 +65,7 @@ struct Recipe: Codable {
     let totalTime: Int?
     let cuisineType: [String]?
     let dishType: [String]?
+    let mealType: [String]?
     let totalNutrients, totalDaily: [String: Total]?
     let digest: [Digest]?
 }
