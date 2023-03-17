@@ -9,6 +9,7 @@ import UIKit
 import Kingfisher
 import SafariServices
 
+
 class DetailVC: UIViewController {
     
     var favBut = FavoriteButton()

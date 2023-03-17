@@ -9,9 +9,7 @@ import UIKit
 import Kingfisher
 
 class HomeVC: UIViewController {
-    
-    var categories = ["Breakfasts", "Soups", "Salads", "Appetizers", "Mains", "Sides", "Desserts", "Snacks", "Drinks"]
-    
+        
     @IBOutlet weak var categoriesTableView: UITableView!
 
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +32,7 @@ class HomeVC: UIViewController {
 
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        categories.count
+        10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

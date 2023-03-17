@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96292C6A29C346A6007475C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96292C6929C346A6007475C5 /* GoogleService-Info.plist */; };
+		96292C6D29C3491F007475C5 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 96292C6C29C3491F007475C5 /* FirebaseAnalyticsSwift */; };
+		96292C6F29C3491F007475C5 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 96292C6E29C3491F007475C5 /* FirebaseAuth */; };
+		96292C7129C3491F007475C5 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 96292C7029C3491F007475C5 /* FirebaseFirestoreSwift */; };
+		96292C7329C3491F007475C5 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 96292C7229C3491F007475C5 /* FirebaseStorage */; };
+		96292C7729C3569C007475C5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96292C7529C3569C007475C5 /* LoginVC.swift */; };
+		96292C7829C3569C007475C5 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96292C7629C3569C007475C5 /* LoginVC.xib */; };
+		96292C7F29C47656007475C5 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96292C7D29C47656007475C5 /* SignUpVC.swift */; };
+		96292C8029C47656007475C5 /* SignUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96292C7E29C47656007475C5 /* SignUpVC.xib */; };
 		9636E92E29BA0BEE00403B1D /* AddRecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9636E92C29BA0BEE00403B1D /* AddRecipeVC.swift */; };
 		9636E92F29BA0BEE00403B1D /* AddRecipeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9636E92D29BA0BEE00403B1D /* AddRecipeVC.xib */; };
 		9636E93229BB20FF00403B1D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9636E93129BB20FF00403B1D /* Extension.swift */; };
@@ -45,6 +54,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		96292C6929C346A6007475C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		96292C7529C3569C007475C5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		96292C7629C3569C007475C5 /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
+		96292C7D29C47656007475C5 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		96292C7E29C47656007475C5 /* SignUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpVC.xib; sourceTree = "<group>"; };
 		9636E92C29BA0BEE00403B1D /* AddRecipeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeVC.swift; sourceTree = "<group>"; };
 		9636E92D29BA0BEE00403B1D /* AddRecipeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddRecipeVC.xib; sourceTree = "<group>"; };
 		9636E93129BB20FF00403B1D /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -87,14 +101,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96292C7129C3491F007475C5 /* FirebaseFirestoreSwift in Frameworks */,
+				96292C6D29C3491F007475C5 /* FirebaseAnalyticsSwift in Frameworks */,
 				9687423329BF4F6C00637A3D /* Kingfisher in Frameworks */,
 				9636E94729BF409200403B1D /* Alamofire in Frameworks */,
+				96292C6F29C3491F007475C5 /* FirebaseAuth in Frameworks */,
+				96292C7329C3491F007475C5 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		96292C7429C35657007475C5 /* LoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				96292C7529C3569C007475C5 /* LoginVC.swift */,
+				96292C7629C3569C007475C5 /* LoginVC.xib */,
+				96292C7D29C47656007475C5 /* SignUpVC.swift */,
+				96292C7E29C47656007475C5 /* SignUpVC.xib */,
+			);
+			path = LoginVC;
+			sourceTree = "<group>";
+		};
 		9636E93029BB20F400403B1D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,10 +205,10 @@
 		96563E9129B9E103000F0C8B /* Recipe App */ = {
 			isa = PBXGroup;
 			children = (
+				96563EAC29B9E1D6000F0C8B /* SupportingFiles */,
 				9636E93D29BF400300403B1D /* Network */,
 				9636E93929BB502300403B1D /* Model */,
 				9636E93029BB20F400403B1D /* Extensions */,
-				96563EAC29B9E1D6000F0C8B /* SupportingFiles */,
 				96563EAB29B9E1B7000F0C8B /* View */,
 				9687422E29BF470000637A3D /* ViewModel */,
 				96563E9B29B9E103000F0C8B /* Recipe_App.xcdatamodeld */,
@@ -190,6 +219,7 @@
 		96563EAB29B9E1B7000F0C8B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				96292C7429C35657007475C5 /* LoginVC */,
 				96563ECB29B9FA47000F0C8B /* DetailVC.swift */,
 				96563ECC29B9FA47000F0C8B /* DetailVC.xib */,
 				96563EC929B9F277000F0C8B /* Tabbar */,
@@ -210,6 +240,7 @@
 				96563E9E29B9E105000F0C8B /* Assets.xcassets */,
 				96563EA029B9E105000F0C8B /* LaunchScreen.storyboard */,
 				96563EA329B9E105000F0C8B /* Info.plist */,
+				96292C6929C346A6007475C5 /* GoogleService-Info.plist */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -283,6 +314,10 @@
 			packageProductDependencies = (
 				9636E94629BF409200403B1D /* Alamofire */,
 				9687423229BF4F6C00637A3D /* Kingfisher */,
+				96292C6C29C3491F007475C5 /* FirebaseAnalyticsSwift */,
+				96292C6E29C3491F007475C5 /* FirebaseAuth */,
+				96292C7029C3491F007475C5 /* FirebaseFirestoreSwift */,
+				96292C7229C3491F007475C5 /* FirebaseStorage */,
 			);
 			productName = "Recipe App";
 			productReference = 96563E8F29B9E103000F0C8B /* Recipe App.app */;
@@ -315,6 +350,7 @@
 			packageReferences = (
 				9636E94529BF409200403B1D /* XCRemoteSwiftPackageReference "Alamofire" */,
 				9687423129BF4F6C00637A3D /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				96292C6B29C3491F007475C5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 96563E9029B9E103000F0C8B /* Products */;
 			projectDirPath = "";
@@ -330,6 +366,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96292C7829C3569C007475C5 /* LoginVC.xib in Resources */,
 				96563EBC29B9E426000F0C8B /* FavoritesVC.xib in Resources */,
 				96563EB429B9E32C000F0C8B /* HomeVC.xib in Resources */,
 				96563EA229B9E105000F0C8B /* LaunchScreen.storyboard in Resources */,
@@ -343,6 +380,8 @@
 				9636E93829BB4D6900403B1D /* FavoritesTableViewCell.xib in Resources */,
 				96563EB829B9E3BC000F0C8B /* NewVC.xib in Resources */,
 				96563ECE29B9FA47000F0C8B /* DetailVC.xib in Resources */,
+				96292C6A29C346A6007475C5 /* GoogleService-Info.plist in Resources */,
+				96292C8029C47656007475C5 /* SignUpVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +394,7 @@
 			files = (
 				96563EBB29B9E426000F0C8B /* FavoritesVC.swift in Sources */,
 				96563EC329B9E78F000F0C8B /* MainTabBarVC.swift in Sources */,
+				96292C7729C3569C007475C5 /* LoginVC.swift in Sources */,
 				96563ECD29B9FA47000F0C8B /* DetailVC.swift in Sources */,
 				96563EB329B9E32C000F0C8B /* HomeVC.swift in Sources */,
 				9636E92E29BA0BEE00403B1D /* AddRecipeVC.swift in Sources */,
@@ -364,6 +404,7 @@
 				96563EC729B9F178000F0C8B /* SearchCollectionViewCell.swift in Sources */,
 				9636E94129BF403900403B1D /* Service.swift in Sources */,
 				9636E93229BB20FF00403B1D /* Extension.swift in Sources */,
+				96292C7F29C47656007475C5 /* SignUpVC.swift in Sources */,
 				9687423029BF471700637A3D /* ViewModel.swift in Sources */,
 				9636E94929BF417C00403B1D /* ApiSource.swift in Sources */,
 				9636E93729BB4D6900403B1D /* FavoritesTableViewCell.swift in Sources */,
@@ -514,6 +555,8 @@
 				DEVELOPMENT_TEAM = F9V6WPSDK2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Recipe App/SupportingFiles/Info.plist";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Permission pls";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Permission for cam";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
@@ -526,7 +569,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "burrakerden.Recipe-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.burrakerden.Recipe-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -547,6 +590,8 @@
 				DEVELOPMENT_TEAM = F9V6WPSDK2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Recipe App/SupportingFiles/Info.plist";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Permission pls";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Permission for cam";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
@@ -559,7 +604,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "burrakerden.Recipe-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.burrakerden.Recipe-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -594,6 +639,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		96292C6B29C3491F007475C5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		9636E94529BF409200403B1D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -613,6 +666,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		96292C6C29C3491F007475C5 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96292C6B29C3491F007475C5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		96292C6E29C3491F007475C5 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96292C6B29C3491F007475C5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		96292C7029C3491F007475C5 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96292C6B29C3491F007475C5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		96292C7229C3491F007475C5 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96292C6B29C3491F007475C5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
 		9636E94629BF409200403B1D /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9636E94529BF409200403B1D /* XCRemoteSwiftPackageReference "Alamofire" */;
