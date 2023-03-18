@@ -25,6 +25,10 @@ class AddRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
         setupGesture()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+//        navigationController?.isNavigationBarHidden = true
+    }
+    
     func setupUI() {
         setMainButton()
         rightButton()
