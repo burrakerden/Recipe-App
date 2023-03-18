@@ -18,12 +18,12 @@ class LoginVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        navigationController?.isNavigationBarHidden = true
+        navigationController?.isNavigationBarHidden = true
     }
 
     func setupUI() {
-        customizeTextField(emailTextField)
-        customizeTextField(passwordTextField)
+        emailTextField.withImage(image: UIImage(systemName: "mail")!, colorBorder: UIColor.systemGray6, imageTintColor: .systemGray)
+        passwordTextField.withImage(image: UIImage(systemName: "key")!, colorBorder: UIColor.systemGray6, imageTintColor: .systemGray)
         hideKeyboardWhenTappedAround()
     }
 
@@ -50,17 +50,6 @@ class LoginVC: UIViewController {
     @IBAction func googleSignInTapped(_ sender: UIButton) {
     }
     
-    
-    
-    func customizeTextField(_ textField: UITextField) {
-        let leftPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 0))
-        textField.layer.cornerRadius = 25
-        textField.layer.borderWidth = 2
-        textField.backgroundColor = .systemGray6
-        textField.layer.borderColor = UIColor.systemGray6.cgColor
-        textField.layer.masksToBounds = true
-        textField.leftView = leftPaddingView
-        textField.leftViewMode = .always
-    }
+
     
 }

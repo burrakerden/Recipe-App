@@ -15,6 +15,9 @@ class AddRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
     @IBOutlet weak var recipeIngredients: UITextView!
     @IBOutlet weak var recipeDirection: UITextView!
     @IBOutlet weak var recipeImage: UIImageView!
+    
+    @IBOutlet weak var textViewHC: NSLayoutConstraint!
+
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,13 +30,14 @@ class AddRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
         rightButton()
         let textViews: [UITextView] = [recipeDescription, recipeIngredients, recipeDirection]
         for textView in textViews {
+            textView.isScrollEnabled = false
+            textView.delegate = self
             textView.layer.borderWidth = 1
             textView.layer.borderColor = UIColor.systemGray5.cgColor
             textView.layer.cornerRadius = 6
         }
         recipeImage.image = UIImage(named: "add")
     }
-    
     
     func setMainButton() {
         let test = {(action: UIAction) in
@@ -150,3 +154,15 @@ class AddRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
     
 }
 
+extension AddRecipeVC: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        let size = CGSize(width: view.frame.width, height: .infinity)
+        let estimatedSize = textView.sizeThatFits(size)
+        textView.sizeThatFits(size)
+        textView.constraints.forEach { (constrait) in
+            if constrait.firstAttribute == .height {
+                constrait.constant = estimatedSize.height
+            }
+        }
+    }
+}
