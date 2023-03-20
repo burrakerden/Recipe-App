@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginVC: UIViewController {
 
@@ -28,14 +29,23 @@ class LoginVC: UIViewController {
     }
 
     @IBAction func signInButtonTapped(_ sender: UIButton) {
-//        let vc = SignInVC()
-//        navigationController?.pushViewController(vc, animated: true)
+        if emailTextField.text != "" && passwordTextField.text != "" {
+            Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { authdata, error in
+                if error != nil {
+                    self.getAlert(mesagge: error!.localizedDescription)
+                } else {
+                    let vc = MainTabBarVC()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+        } else {
+            getAlert(mesagge: "Email and Password cannot be blank!")
+        }
     }
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
         let vc = SignUpVC()
         navigationController?.pushViewController(vc, animated: true)
-        print("singup")
     }
     
     
@@ -51,5 +61,10 @@ class LoginVC: UIViewController {
     }
     
 
-    
+    func getAlert(mesagge: String) {
+        let ac = UIAlertController(title: "Warning", message: mesagge, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+        present(ac, animated: true)
+    }
+
 }

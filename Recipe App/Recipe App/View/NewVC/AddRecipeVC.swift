@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class AddRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -82,6 +83,11 @@ class AddRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
         if recipeName.text == "" {
             getAlert(mesagge: "Please fill in the blanks")
         } else {
+            let storage = Storage.storage()
+            let storageRef = storage.reference()
+            
+            let mediaFolder = storageRef.child("media")
+            
             navigationController?.popViewController(animated: true)
         }
     }
@@ -119,9 +125,7 @@ class AddRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
             self.present(picker, animated: true)
         }
         libraryAction.setValue(UIImage(systemName: "photo"), forKey: "image")
-        
-
-        
+    
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         
         ac.addAction(cameraAction)
@@ -152,11 +156,13 @@ class AddRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
     
     func getAlert(mesagge: String) {
         let ac = UIAlertController(title: "Warning", message: mesagge, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+        ac.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
         present(ac, animated: true)
     }
     
 }
+
+//MARK: - Multiline TextView ex
 
 extension AddRecipeVC: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {

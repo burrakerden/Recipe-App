@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -16,11 +17,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             guard let windowScene = (scene as? UIWindowScene) else { return }
             window = UIWindow(frame: windowScene.coordinateSpace.bounds)
             window?.windowScene = windowScene
-//            let navigationController = UINavigationController(rootViewController: LoginVC())
-            
-            window?.rootViewController = MainTabBarVC()
+            checkUser()
             window?.makeKeyAndVisible()
         }
+    
+    func checkUser() {
+        let user = Auth.auth().currentUser
+
+        if user != nil {
+            window?.rootViewController = MainTabBarVC()
+        } else {
+            window?.rootViewController = UINavigationController(rootViewController: LoginVC())
+        }
+    }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

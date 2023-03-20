@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpVC" customModule="Recipe_App" customModuleProvider="target">
             <connections>
-                <outlet property="confirmEmailTextField" destination="3bY-Uu-eew" id="kds-RM-t6d"/>
+                <outlet property="confirmPasswordTextField" destination="3bY-Uu-eew" id="kds-RM-t6d"/>
                 <outlet property="emailTextField" destination="8hp-Lc-MNi" id="ZQM-rZ-sMu"/>
                 <outlet property="fullNameTextFied" destination="scx-gU-gpp" id="R65-tj-CV3"/>
                 <outlet property="passwordTextField" destination="Qyq-6F-U2A" id="d4f-Pl-c2y"/>
