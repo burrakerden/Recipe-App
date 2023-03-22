@@ -1,11 +1,27 @@
 # Recipe-App
 
-The main goal of this application is to provide a user-friendly platform for recipe management. You can add recipes by filling out a form that includes the recipe name, ingredients, and instructions. You can also upload an image of the recipe to make it more visually appealing.
 
-The app features a sleek and modern design, making it easy to navigate and use. The MVVM design pattern has been used to ensure the separation of concerns between the model, view, and view model.
 
-The recipe collection is displayed using a UICollectionView, allowing for easy scrolling and browsing. Additionally, the app includes a search feature that enables users to search for specific recipes by name or ingredient.
+* The main view of the application consists of a collection view with images and names of 40 different Pokemon.
+Each cell of the collection view allows the user to access the detail page of the selected Pokemon.
+Double-tapping to the cell shows the back side of the character. (I used protocol and tap gesture to implement this feature.)
+Once tapped, the app will take you to the selected Pokemon's detail page.
 
-One of the unique features of this app is the ability to create personalized recipe collections. Users can add recipes to their favorites list or create custom collections for easy organization.
+* When we go to the detail view of the application, we see the back side of the pokemon card and when we click on it, the front side is flipped with an animation (I used pre written code for this feature.)
 
-Core Data is used for data persistence, ensuring that all user data is saved securely and efficiently. The app also includes several other features such as alerts, tap gestures, and custom UI components, all of which enhance the user experience.
+
+
+## Features
+* MVVM Design Pattern
+* XIB
+* UICollectionView
+* Custom CollectionView Cell
+* Protocols
+* UITapGestureRecognizer
+* Alamofire
+* SDWebImage
+* SDWebImageSVGCoder
+
+
+## ↓↓ Short Gif ↓↓
+![RocketSim_Recording_iPhone_14_Pro_2023-03-23_00 42 01](https://user-images.githubusercontent.com/116464498/227045022-90e11b7a-8a5b-4526-9ab6-f7195fb63c3e.gif)
