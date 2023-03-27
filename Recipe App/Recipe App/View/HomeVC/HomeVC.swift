@@ -30,6 +30,8 @@ class HomeVC: UIViewController {
     }
 }
 
+//MARK: - Table View
+
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         10
