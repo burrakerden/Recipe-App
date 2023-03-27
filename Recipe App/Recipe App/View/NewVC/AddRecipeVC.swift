@@ -7,6 +7,8 @@
 
 import UIKit
 import FirebaseStorage
+import FirebaseCore
+import FirebaseFirestore
 
 class AddRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -79,7 +81,6 @@ class AddRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
     }
     
     @objc func saveTapped() {
-        print("ok")
         if recipeName.text == "" {
             getAlert(mesagge: "Please fill in the blanks")
         } else {
@@ -87,6 +88,47 @@ class AddRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
             let storageRef = storage.reference()
             
             let mediaFolder = storageRef.child("media")
+            
+            if let data = recipeImage.image?.jpegData(compressionQuality: 0.5) {
+                let uuid = UUID().uuidString
+                let imageReference = mediaFolder.child("\(uuid).jpeg")
+                imageReference.putData(data, metadata: nil) { (metadata, error) in
+                    if error != nil {
+                        self.getAlert(mesagge: error!.localizedDescription)
+                    } else {
+                        imageReference.downloadURL { url, error in
+                            if error == nil {
+                                let imageURL = url?.absoluteURL
+                                print(imageURL!)
+
+                                // Database
+                                let db = Firestore.firestore()
+                                var ref: DocumentReference? = nil
+                                
+                                let post = ["name": self.recipeName.text!,
+                                            "image": "\(imageURL!)",
+                                            "category": self.recipeCategory.currentTitle!,
+                                            "description": self.recipeDescription.text!,
+                                            "ingredients": self.recipeIngredients.text!.replacingOccurrences(of: " ", with: "_"),
+                                            "directions": self.recipeDirection.text!,
+                                            "date": FieldValue.serverTimestamp()]
+                                
+                                ref = db.collection("single").addDocument(data: post) { err in
+                                    if let err = err {
+                                        self.getAlert(mesagge: err.localizedDescription)
+                                        print("Error adding document: \(err)")
+                                    } else {
+                                        print("Document added with ID: \(ref!.documentID)")
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+                
+            }
+            
             
             navigationController?.popViewController(animated: true)
         }

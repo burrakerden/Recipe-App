@@ -13,6 +13,9 @@ class SearchVC: UIViewController {
     @IBOutlet weak var searchCollectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    @IBOutlet weak var searchIndicator: UIActivityIndicatorView!
+    
+    
     var timer: Timer?
     
     var model = ViewModel()
@@ -27,6 +30,7 @@ class SearchVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
+        searchIndicator.isHidden = true
 //        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
@@ -96,10 +100,14 @@ extension SearchVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == recipeData.count - 1 {
+            searchIndicator.isHidden = false
+            searchIndicator.startAnimating()
             model.getNextData(pagination: nextPageURL)
             model.hits = {[weak self] value in
                 guard let self = self else {return}
-                DispatchQueue.main.async {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.45) {
+                    self.searchIndicator.isHidden = true
+                    self.searchIndicator.stopAnimating()
                     self.recipeData.append(contentsOf: value)
                     self.searchCollectionView.reloadData()
                 }
