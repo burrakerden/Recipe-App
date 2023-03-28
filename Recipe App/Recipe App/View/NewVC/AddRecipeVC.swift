@@ -128,8 +128,6 @@ class AddRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
                 }
                 
             }
-            
-            
             navigationController?.popViewController(animated: true)
         }
     }

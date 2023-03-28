@@ -8,7 +8,11 @@
 import UIKit
 
 class FavoritesTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var myImage: UIImageView!
+    
+    @IBOutlet weak var myName: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

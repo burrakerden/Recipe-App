@@ -22,7 +22,7 @@ class HomeVC: UIViewController {
     }
 
     func setupUI() {
-        navigationItem.title = "My Recipes"
+        navigationItem.title = "Favorite Recipes"
         categoriesTableView.delegate = self
         categoriesTableView.dataSource = self
         categoriesTableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")

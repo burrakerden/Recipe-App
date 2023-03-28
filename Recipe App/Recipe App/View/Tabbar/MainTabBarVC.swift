@@ -36,12 +36,12 @@ class MainTabBarVC: UITabBarController {
         vc1.tabBarItem.image = UIImage(systemName: "house.fill")
         vc2.tabBarItem.image = UIImage(systemName: "magnifyingglass")
         vc3.tabBarItem.image = UIImage(systemName: "plus.square.fill")
-        vc4.tabBarItem.image = UIImage(systemName: "heart.fill")
+        vc4.tabBarItem.image = UIImage(systemName: "text.book.closed.fill")
         vc5.tabBarItem.image = UIImage(systemName: "person.crop.square.fill")
         vc1.title = "Home"
         vc2.title = "Search"
         vc3.title = "New"
-        vc4.title = "Favorites"
+        vc4.title = "My Recipes"
         vc5.title = "Settings"
         setViewControllers([vc1, vc2, vc3, vc4, vc5], animated: true)
         tabBar.tintColor = .systemRed
