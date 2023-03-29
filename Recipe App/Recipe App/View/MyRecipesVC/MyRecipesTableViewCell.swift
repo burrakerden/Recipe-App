@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoritesTableViewCell: UITableViewCell {
+class MyRecipesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var myImage: UIImageView!
     

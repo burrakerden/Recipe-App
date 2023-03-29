@@ -47,6 +47,7 @@ class DetailVC: UIViewController {
         navigationController?.navigationBar.tintColor = .systemGray
         favButton()
         setupUI()
+        detailImage.roundCorners(corners: [.bottomLeft], radius: 40)
     }
     
     func setupUI() {
@@ -66,7 +67,6 @@ class DetailVC: UIViewController {
             detailMacrosText += "• \(title): \(quantity) \(unit)\n"
         }
         detailMacros.text = detailMacrosText
-        detailImage.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 28)
     }
     
     func favButton() {
@@ -77,15 +77,5 @@ class DetailVC: UIViewController {
     
     @objc func test() {
         print(favBut.isFavorite)
-    }
-}
-
-
-extension UIImageView {
-   func roundCorners(corners: UIRectCorner, radius: CGFloat) {
-        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        let mask = CAShapeLayer()
-        mask.path = path.cgPath
-        layer.mask = mask
     }
 }

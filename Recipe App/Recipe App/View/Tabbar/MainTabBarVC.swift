@@ -31,7 +31,7 @@ class MainTabBarVC: UITabBarController {
         let vc1 = UINavigationController(rootViewController: HomeVC())
         let vc2 = UINavigationController(rootViewController: SearchVC())
         let vc3 = UINavigationController(rootViewController: NewVC())
-        let vc4 = UINavigationController(rootViewController: FavoritesVC())
+        let vc4 = UINavigationController(rootViewController: MyRecipesVC())
         let vc5 = UINavigationController(rootViewController: SettingsVC())
         vc1.tabBarItem.image = UIImage(systemName: "house.fill")
         vc2.tabBarItem.image = UIImage(systemName: "magnifyingglass")

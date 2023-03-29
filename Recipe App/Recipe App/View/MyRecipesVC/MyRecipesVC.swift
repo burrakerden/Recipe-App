@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import Kingfisher
 
-class FavoritesVC: UIViewController {
+class MyRecipesVC: UIViewController {
     
     var name = [String]()
     var image = [String]()
@@ -19,7 +19,7 @@ class FavoritesVC: UIViewController {
     var directions = [String]()
     var date = [String]()
 
-    @IBOutlet weak var favoritesTableView: UITableView!
+    @IBOutlet weak var MyRecipesTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +30,18 @@ class FavoritesVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
+    
+    //MARK: - Config
+    
+    func setupUI() {
+        navigationItem.title = "My Recipes"
+        MyRecipesTableView.delegate = self
+        MyRecipesTableView.dataSource = self
+        MyRecipesTableView.register(UINib(nibName: "MyRecipesTableViewCell", bundle: nil), forCellReuseIdentifier: "MyRecipesTableViewCell")
+        navigationController?.navigationBar.tintColor = .systemGray
+    }
+    
+    //MARK: - Get Data From Firestore
     
     func getDataFromFirestore() {
         let db = Firestore.firestore()
@@ -63,32 +75,30 @@ class FavoritesVC: UIViewController {
                         self.date.append(date)
                     }
                 }
-                self.favoritesTableView.reloadData()
+                self.MyRecipesTableView.reloadData()
             }
         }
     }
-
-    func setupUI() {
-        navigationItem.title = "My Recipes"
-        favoritesTableView.delegate = self
-        favoritesTableView.dataSource = self
-        favoritesTableView.register(UINib(nibName: "FavoritesTableViewCell", bundle: nil), forCellReuseIdentifier: "FavoritesTableViewCell")
-    }
 }
 
-extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
+//MARK: - TableView Extension
+
+extension MyRecipesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         name.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: FavoritesTableViewCell = favoritesTableView.dequeueReusableCell(withIdentifier: "FavoritesTableViewCell", for: indexPath) as? FavoritesTableViewCell else {return UITableViewCell()}
-        cell.myName.text = name[indexPath.row]
-        
+        guard let cell: MyRecipesTableViewCell = MyRecipesTableView.dequeueReusableCell(withIdentifier: "MyRecipesTableViewCell", for: indexPath) as? MyRecipesTableViewCell else {return UITableViewCell()}
         let url = self.image[indexPath.row]
-            cell.myImage.kf.setImage(with: URL(string: url))
-        
-                return cell
+        cell.myName.text = name[indexPath.row]
+        cell.myImage.kf.setImage(with: URL(string: url))
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = MyRecipeDetailVC()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     
