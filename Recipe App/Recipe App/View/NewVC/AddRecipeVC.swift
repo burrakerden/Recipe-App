@@ -109,7 +109,7 @@ class AddRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
                                             "image": "\(imageURL!)",
                                             "category": self.recipeCategory.currentTitle!,
                                             "description": self.recipeDescription.text!,
-                                            "ingredients": self.recipeIngredients.text!.replacingOccurrences(of: " ", with: "_"),
+                                            "ingredients": self.recipeIngredients.text!,
                                             "directions": self.recipeDirection.text!,
                                             "date": FieldValue.serverTimestamp()]
                                 

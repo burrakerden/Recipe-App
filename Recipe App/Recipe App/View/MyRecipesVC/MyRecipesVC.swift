@@ -11,14 +11,17 @@ import Kingfisher
 
 class MyRecipesVC: UIViewController {
     
+    
     var name = [String]()
     var image = [String]()
     var category = [String]()
     var descriptionn = [String]()
     var ingredients = [String]()
     var directions = [String]()
-    var date = [String]()
-
+    var documentID = [String]()
+    
+    let db = Firestore.firestore()
+    
     @IBOutlet weak var MyRecipesTableView: UITableView!
     
     override func viewDidLoad() {
@@ -44,17 +47,16 @@ class MyRecipesVC: UIViewController {
     //MARK: - Get Data From Firestore
     
     func getDataFromFirestore() {
-        let db = Firestore.firestore()
         
-        db.collection("single").addSnapshotListener { snapshot, error in
+        db.collection("single").order(by: "date", descending: true).addSnapshotListener { snapshot, error in
             if error != nil {
                 print(error!.localizedDescription)
             } else {
                 guard let documents = snapshot?.documents else {return}
                 for document in documents {
+                    self.documentID.append(document.documentID)
                     if let name = document.get("name") as? String {
                         self.name.append(name)
-                        print(self.name)
                     }
                     if let image = document.get("image") as? String {
                         self.image.append(image)
@@ -62,7 +64,7 @@ class MyRecipesVC: UIViewController {
                     if let category = document.get("category") as? String {
                         self.category.append(category)
                     }
-                    if let descriptionn = document.get("descriptionn") as? String {
+                    if let descriptionn = document.get("description") as? String {
                         self.descriptionn.append(descriptionn)
                     }
                     if let ingredients = document.get("ingredients") as? String {
@@ -71,11 +73,9 @@ class MyRecipesVC: UIViewController {
                     if let directions = document.get("directions") as? String {
                         self.directions.append(directions)
                     }
-                    if let date = document.get("date") as? String {
-                        self.date.append(date)
-                    }
                 }
                 self.MyRecipesTableView.reloadData()
+
             }
         }
     }
@@ -93,12 +93,36 @@ extension MyRecipesVC: UITableViewDelegate, UITableViewDataSource {
         let url = self.image[indexPath.row]
         cell.myName.text = name[indexPath.row]
         cell.myImage.kf.setImage(with: URL(string: url))
+        cell.myCategory.text = category[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = MyRecipeDetailVC()
+        vc.name = name[indexPath.row]
+        vc.image = image[indexPath.row]
+        vc.descriptionn = self.descriptionn[indexPath.row]
+        vc.ingredients = ingredients[indexPath.row]
+        vc.category = category[indexPath.row]
+        vc.directions = directions[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .normal, title: "Delete") { _, _, _ in
+            self.db.collection("single").document(self.documentID[indexPath.row]).delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err.localizedDescription)")
+                } else {
+                    print("Document successfully removed!")
+                }
+            }
+            tableView.reloadData()
+        }
+        deleteAction.backgroundColor = .systemRed
+        let config = UISwipeActionsConfiguration(actions: [deleteAction])
+        return config
     }
     
     

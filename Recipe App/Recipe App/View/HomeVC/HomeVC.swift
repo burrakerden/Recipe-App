@@ -26,7 +26,7 @@ class HomeVC: UIViewController {
         categoriesTableView.delegate = self
         categoriesTableView.dataSource = self
         categoriesTableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")
-        categoriesTableView.separatorStyle = .none
+        categoriesTableView.separatorInset = UIEdgeInsets(top: 0, left: 260, bottom: 0, right: 8)
     }
 }
 
@@ -53,12 +53,14 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let backgroundView = UIView()
-        backgroundView.backgroundColor = .white
-        backgroundView.layer.cornerRadius = 10
-        backgroundView.layer.masksToBounds = true
-        backgroundView.frame = CGRect(x: 10, y: 5, width: cell.frame.width - 20, height: cell.frame.height + 40)
-        cell.contentView.addSubview(backgroundView)
-        cell.contentView.sendSubviewToBack(backgroundView)
+//        let backgroundView = UIView()
+//        backgroundView.backgroundColor = .white
+//        backgroundView.layer.cornerRadius = 10
+//        backgroundView.layer.masksToBounds = true
+//        backgroundView.frame = CGRect(x: 10, y: 5, width: cell.frame.width - 20, height: cell.frame.height + 40)
+//        cell.contentView.addSubview(backgroundView)
+//        cell.contentView.sendSubviewToBack(backgroundView)
+        
     }
+
 }

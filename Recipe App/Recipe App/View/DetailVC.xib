@@ -47,7 +47,7 @@
                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   French   " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BrV-PE-LBv" userLabel="cuisineType">
                                     <rect key="frame" x="297.66666666666669" y="454.33333333333331" width="83.333333333333314" height="20.333333333333314"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="17"/>
-                                    <color key="textColor" red="1" green="0.15444464760000001" blue="0.18965353209999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="textColor" red="1" green="0.15294117647058825" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGP-pD-DEs" userLabel="Meal Type Header">

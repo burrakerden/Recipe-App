@@ -19,10 +19,9 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="108" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hSM-oe-kem">
-                    <rect key="frame" x="6" y="63" width="371" height="755"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="116" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hSM-oe-kem">
+                    <rect key="frame" x="6" y="59" width="379" height="759"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <color key="separatorColor" systemColor="systemGray5Color"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -30,8 +29,8 @@
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="hSM-oe-kem" secondAttribute="bottom" id="49D-Fj-7Lf"/>
                 <constraint firstItem="hSM-oe-kem" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="6" id="Ceq-3H-GRP"/>
-                <constraint firstItem="hSM-oe-kem" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="4" id="pnv-k5-Mxi"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hSM-oe-kem" secondAttribute="trailing" constant="16" id="vF5-gr-sIF"/>
+                <constraint firstItem="hSM-oe-kem" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="pnv-k5-Mxi"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hSM-oe-kem" secondAttribute="trailing" constant="8" id="vF5-gr-sIF"/>
             </constraints>
             <point key="canvasLocation" x="83" y="20"/>
         </view>
@@ -39,9 +38,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

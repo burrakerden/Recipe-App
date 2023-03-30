@@ -211,10 +211,10 @@
 		96563E9129B9E103000F0C8B /* Recipe App */ = {
 			isa = PBXGroup;
 			children = (
+				9636E93029BB20F400403B1D /* Extensions */,
 				96563EAC29B9E1D6000F0C8B /* SupportingFiles */,
 				9636E93D29BF400300403B1D /* Network */,
 				9636E93929BB502300403B1D /* Model */,
-				9636E93029BB20F400403B1D /* Extensions */,
 				96563EAB29B9E1B7000F0C8B /* View */,
 				9687422E29BF470000637A3D /* ViewModel */,
 				96563E9B29B9E103000F0C8B /* Recipe_App.xcdatamodeld */,
