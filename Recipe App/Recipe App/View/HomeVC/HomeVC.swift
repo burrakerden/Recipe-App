@@ -7,13 +7,21 @@
 
 import UIKit
 import Kingfisher
+import CoreData
 
 class HomeVC: UIViewController {
         
     @IBOutlet weak var categoriesTableView: UITableView!
+    
+    var model = CoreDataModel()
+    
+//    var items : [Items]?
+//    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Items")
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = true
+        fetchData()
     }
     
     override func viewDidLoad() {
@@ -28,27 +36,35 @@ class HomeVC: UIViewController {
         categoriesTableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")
         categoriesTableView.separatorInset = UIEdgeInsets(top: 0, left: 260, bottom: 0, right: 8)
     }
+    
+    func fetchData() {
+        model.fetchData()
+    }
 }
 
 //MARK: - Table View
 
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        model.items?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: HomeTableViewCell = categoriesTableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as? HomeTableViewCell else {return UITableViewCell()}
-//        cell.tableName.text =
-//        cell.tableSource.text =
-//        cell.tableKcal.text =
-//        cell.tableDishType.text =
-//        cell.tableImage.kf.setImage(with: URL(string: url))
+        if let items = model.items?[indexPath.row] {
+            cell.tableName.text = items.name
+            cell.tableSource.text = items.cuisineType
+            cell.tableKcal.text = "000"
+            cell.tableDishType.text = items.mealType
+            cell.tableImage.kf.setImage(with: URL(string: items.image!))
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailVC()
+        vc.indexPath = indexPath.row
+        vc.isFavorite = true
         navigationController?.pushViewController(vc, animated: true)
     }
     

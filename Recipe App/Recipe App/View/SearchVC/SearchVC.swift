@@ -95,6 +95,7 @@ extension SearchVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = DetailVC()
         vc.recipeData = recipeData[indexPath.row]
+        vc.indexPath = indexPath.row
         navigationController?.pushViewController(vc, animated: true)
     }
     

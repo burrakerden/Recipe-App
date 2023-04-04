@@ -26,4 +26,11 @@ class HomeTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setupCellUI(data: Items) {
+            tableName.text = data.name
+//            itemSize.text = data.size
+//            itemPrice.text = String(format: "%.2f", data.price) + " $"
+//            myImage.image = UIImage(data: data.image!)
+    }
+    
 }

@@ -52,6 +52,13 @@ class MyRecipesVC: UIViewController {
             if error != nil {
                 print(error!.localizedDescription)
             } else {
+                self.documentID.removeAll()
+                self.name.removeAll()
+                self.image.removeAll()
+                self.category.removeAll()
+                self.descriptionn.removeAll()
+                self.ingredients.removeAll()
+                self.directions.removeAll()
                 guard let documents = snapshot?.documents else {return}
                 for document in documents {
                     self.documentID.append(document.documentID)
