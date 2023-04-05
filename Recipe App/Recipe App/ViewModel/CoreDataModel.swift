@@ -15,15 +15,16 @@ class CoreDataModel {
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Items")
     
-    func fetchData() {
+    func fetchData(tableView: UITableView?) {
         do {
             items = try context.fetch(Items.fetchRequest())
         } catch {
             print("error - fetchData")
         }
+        tableView?.reloadData()
     }
     
-    func addData(name: String, ingredients: String, cuisineType: String, mealType: String, directions: String, macros: String, image: String) {
+    func addData(name: String, ingredients: String, cuisineType: String, mealType: String, directions: String, macros: String, image: String, yields: String, calories: String) {
         let newObject = Items(context: context)
         newObject.name = name
         newObject.ingredients = ingredients
@@ -32,6 +33,8 @@ class CoreDataModel {
         newObject.directions = directions
         newObject.macros = macros
         newObject.image = image
+        newObject.yields = yields
+        newObject.calories = calories
         newObject.uuid = UUID()
         do {
             try context.save()

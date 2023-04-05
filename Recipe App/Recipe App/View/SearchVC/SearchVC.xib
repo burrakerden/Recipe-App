@@ -31,7 +31,7 @@
                         <inset key="sectionInset" minX="10" minY="18" maxX="10" maxY="24"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="dcv-cc-mlB">
+                <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="dcv-cc-mlB">
                     <rect key="frame" x="0.0" y="59" width="393" height="56"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>

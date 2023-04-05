@@ -78,9 +78,9 @@ extension SearchVC: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.homeName.text = mainData?.label
         cell.homeDishType.text = mainData?.dishType?[0].capitalized
         cell.homeSource.text = "Source: " + (mainData?.source ?? "")
-        if let time = mainData?.calories {
-            if time != 0 {
-                cell.homeKcal.text = " kcals: \(Int(time)) "
+        if let cal = mainData?.calories {
+            if cal != 0 {
+                cell.homeKcal.text = " kcals: \(Int(cal)) "
             } else {
                 cell.homeKcal.text = ""
             }

@@ -14,6 +14,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var tableDishType: UILabel!
     @IBOutlet weak var tableSource: UILabel!
     @IBOutlet weak var tableKcal: UILabel!
+    @IBOutlet weak var tableYields: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

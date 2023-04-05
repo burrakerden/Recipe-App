@@ -16,9 +16,9 @@
 		96292C7829C3569C007475C5 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96292C7629C3569C007475C5 /* LoginVC.xib */; };
 		96292C7F29C47656007475C5 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96292C7D29C47656007475C5 /* SignUpVC.swift */; };
 		96292C8029C47656007475C5 /* SignUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96292C7E29C47656007475C5 /* SignUpVC.xib */; };
-		962F3C0C29DC581900FB7A33 /* Items+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F3C0A29DC581900FB7A33 /* Items+CoreDataClass.swift */; };
-		962F3C0D29DC581900FB7A33 /* Items+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F3C0B29DC581900FB7A33 /* Items+CoreDataProperties.swift */; };
 		962F3C0F29DC64A200FB7A33 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F3C0E29DC64A200FB7A33 /* CoreDataModel.swift */; };
+		962F3C1229DD57F200FB7A33 /* Items+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F3C1029DD57F200FB7A33 /* Items+CoreDataClass.swift */; };
+		962F3C1329DD57F200FB7A33 /* Items+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F3C1129DD57F200FB7A33 /* Items+CoreDataProperties.swift */; };
 		9636E92E29BA0BEE00403B1D /* AddRecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9636E92C29BA0BEE00403B1D /* AddRecipeVC.swift */; };
 		9636E92F29BA0BEE00403B1D /* AddRecipeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9636E92D29BA0BEE00403B1D /* AddRecipeVC.xib */; };
 		9636E93229BB20FF00403B1D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9636E93129BB20FF00403B1D /* Extension.swift */; };
@@ -64,9 +64,9 @@
 		96292C7629C3569C007475C5 /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		96292C7D29C47656007475C5 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		96292C7E29C47656007475C5 /* SignUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpVC.xib; sourceTree = "<group>"; };
-		962F3C0A29DC581900FB7A33 /* Items+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Items+CoreDataClass.swift"; sourceTree = "<group>"; };
-		962F3C0B29DC581900FB7A33 /* Items+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Items+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		962F3C0E29DC64A200FB7A33 /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
+		962F3C1029DD57F200FB7A33 /* Items+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Items+CoreDataClass.swift"; sourceTree = "<group>"; };
+		962F3C1129DD57F200FB7A33 /* Items+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Items+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9636E92C29BA0BEE00403B1D /* AddRecipeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeVC.swift; sourceTree = "<group>"; };
 		9636E92D29BA0BEE00403B1D /* AddRecipeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddRecipeVC.xib; sourceTree = "<group>"; };
 		9636E93129BB20FF00403B1D /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -137,6 +137,8 @@
 		962F3C0529DC540400FB7A33 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				962F3C1029DD57F200FB7A33 /* Items+CoreDataClass.swift */,
+				962F3C1129DD57F200FB7A33 /* Items+CoreDataProperties.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -208,8 +210,6 @@
 		96563E8629B9E103000F0C8B = {
 			isa = PBXGroup;
 			children = (
-				962F3C0A29DC581900FB7A33 /* Items+CoreDataClass.swift */,
-				962F3C0B29DC581900FB7A33 /* Items+CoreDataProperties.swift */,
 				96563E9129B9E103000F0C8B /* Recipe App */,
 				96563E9029B9E103000F0C8B /* Products */,
 			);
@@ -417,13 +417,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				96563EBB29B9E426000F0C8B /* MyRecipesVC.swift in Sources */,
+				962F3C1229DD57F200FB7A33 /* Items+CoreDataClass.swift in Sources */,
 				96563EC329B9E78F000F0C8B /* MainTabBarVC.swift in Sources */,
-				962F3C0C29DC581900FB7A33 /* Items+CoreDataClass.swift in Sources */,
 				96292C7729C3569C007475C5 /* LoginVC.swift in Sources */,
 				96563ECD29B9FA47000F0C8B /* DetailVC.swift in Sources */,
 				96563EB329B9E32C000F0C8B /* HomeVC.swift in Sources */,
 				9636E92E29BA0BEE00403B1D /* AddRecipeVC.swift in Sources */,
 				96563EB729B9E3BC000F0C8B /* NewVC.swift in Sources */,
+				962F3C1329DD57F200FB7A33 /* Items+CoreDataProperties.swift in Sources */,
 				96563ED229B9FE35000F0C8B /* HomeTableViewCell.swift in Sources */,
 				96563E9329B9E103000F0C8B /* AppDelegate.swift in Sources */,
 				96563EC729B9F178000F0C8B /* SearchCollectionViewCell.swift in Sources */,
@@ -433,7 +434,6 @@
 				9687423029BF471700637A3D /* ViewModel.swift in Sources */,
 				9636E94929BF417C00403B1D /* ApiSource.swift in Sources */,
 				9636E93729BB4D6900403B1D /* MyRecipesTableViewCell.swift in Sources */,
-				962F3C0D29DC581900FB7A33 /* Items+CoreDataProperties.swift in Sources */,
 				962F3C0F29DC64A200FB7A33 /* CoreDataModel.swift in Sources */,
 				9636E94429BF404E00403B1D /* ServiceManager.swift in Sources */,
 				96563EAF29B9E2D2000F0C8B /* SearchVC.swift in Sources */,

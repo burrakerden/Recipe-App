@@ -2,7 +2,7 @@
 //  Items+CoreDataProperties.swift
 //  Recipe App
 //
-//  Created by Burak Erden on 4.04.2023.
+//  Created by Burak Erden on 5.04.2023.
 //
 //
 
@@ -25,6 +25,8 @@ extension Items {
     @NSManaged public var isFav: Bool
     @NSManaged public var uuid: UUID?
     @NSManaged public var image: String?
+    @NSManaged public var calories: String?
+    @NSManaged public var yields: String?
 
 }
 

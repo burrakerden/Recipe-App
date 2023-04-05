@@ -128,7 +128,7 @@ class AddRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
                 }
                 
             }
-            navigationController?.popViewController(animated: true)
+                self.navigationController?.popViewController(animated: true)
         }
     }
     
@@ -172,9 +172,7 @@ class AddRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
         ac.addAction(libraryAction)
         ac.addAction(cancelAction)
 
-        if recipeImage.image == UIImage(named: "add") {
-            print("not selected")
-        } else {
+        if recipeImage.image != UIImage(named: "add") {
             ac.addAction(UIAlertAction(title: "Delete selected image", style: .destructive, handler: { _ in
                 self.recipeImage.image = UIImage(named: "add")
             }))

@@ -21,7 +21,7 @@ class DetailVC: UIViewController {
     
     // Core Data
     var model = CoreDataModel()
-
+    var item: Items?
     var recipeData: Hit?
     var indexPath = 0
     
@@ -43,14 +43,23 @@ class DetailVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.isNavigationBarHidden = false
+        model.fetchData(tableView: nil)
     }
     
     
     @IBAction func detailUrlButtonTapped(_ sender: UIButton) {
-        guard let recipeData = recipeData?.recipe?.url else {return}
-        if let url = URL(string: recipeData) {
-            let vc = SFSafariViewController(url: url)
-            present(vc, animated: true)
+        if recipeData != nil {
+            guard let directionURL = recipeData?.recipe?.url else {return}
+            if let url = URL(string: directionURL) {
+                let vc = SFSafariViewController(url: url)
+                present(vc, animated: true)
+            }
+        } else {
+            guard let itemURL = item?.directions else {return}
+            if let url = URL(string: itemURL) {
+                let vc = SFSafariViewController(url: url)
+                present(vc, animated: true)
+            }
         }
     }
     
@@ -62,23 +71,36 @@ class DetailVC: UIViewController {
     }
     
     func setupUI() {
-        guard let recipeData = recipeData?.recipe, let url = recipeData.image, let macroData = recipeData.totalNutrients else {return}
-        detailImage.kf.setImage(with: URL(string: url))
-        detailName.text = recipeData.label
-        detailIngredients.text = recipeData.ingredientLines?.map { "• \($0)" }.joined(separator: "\n")
-        detailCuisineType.text = "Origin: \(recipeData.cuisineType?[0].uppercased() ?? "UNKNOWN")"
-        detailMealType.text = recipeData.mealType?[0].capitalized
-        detailUrlButton.setTitle("\(recipeData.url ?? "Sorry, The site is unreachable right now")", for: UIControl.State.normal)
-        
-        var detailMacrosText = ""
-        let macros = ["Fat": "FAT", "Carbs": "CHOCDF", "Fiber": "FIBTG", "Sugar": "SUGAR", "Protein": "PROCNT", "Cholesterol": "CHOLE"]
-        for (title, macro) in macros {
-            let quantity = String(format: "%.2f", macroData[macro]?.quantity ?? 0.0)
-            let unit = macroData[macro]?.unit?.rawValue ?? ""                       //look at this algorithm
-            detailMacrosText += "• \(title): \(quantity) \(unit)\n"
+        if recipeData != nil {
+            guard let recipeData = recipeData?.recipe, let url = recipeData.image, let macroData = recipeData.totalNutrients else {return}
+            detailImage.kf.setImage(with: URL(string: url))
+            detailName.text = recipeData.label
+            detailIngredients.text = recipeData.ingredientLines?.map { "• \($0)" }.joined(separator: "\n")
+            detailCuisineType.text = "Origin: \(recipeData.cuisineType?[0].uppercased() ?? "UNKNOWN")"
+            detailMealType.text = recipeData.mealType?[0].capitalized
+            detailUrlButton.setTitle("\(recipeData.url ?? "Sorry, The site is unreachable right now")", for: UIControl.State.normal)
+            
+            var detailMacrosText = ""
+            let macros = ["Fat": "FAT", "Carbs": "CHOCDF", "Fiber": "FIBTG", "Sugar": "SUGAR", "Protein": "PROCNT", "Cholesterol": "CHOLE"]
+            for (title, macro) in macros {
+                let quantity = String(format: "%.2f", macroData[macro]?.quantity ?? 0.0)
+                let unit = macroData[macro]?.unit?.rawValue ?? ""                       //look at this algorithm
+                detailMacrosText += "• \(title): \(quantity) \(unit)\n"
+            }
+            detailMacros.text = detailMacrosText
+        } else {
+            guard let url = self.item?.image else {return}
+            detailImage.kf.setImage(with: URL(string: url))
+            detailName.text = item?.name
+            detailIngredients.text = item?.ingredients
+            detailCuisineType.text = item?.cuisineType
+            detailMealType.text = item?.mealType
+            detailMacros.text = item?.macros
+            detailUrlButton.setTitle("\(item?.directions ?? "Sorry, The site is unreachable right now")", for: UIControl.State.normal)
         }
-        detailMacros.text = detailMacrosText
     }
+    
+    // Favorite Button
     
     func favButton() {
         favoriteButtonItem = UIBarButtonItem(image: favoriteImage,
@@ -86,7 +108,6 @@ class DetailVC: UIViewController {
                                              target: self,
                                              action: #selector(toggleFavorite))
         favoriteButtonItem?.tintColor = .systemRed
-
         navigationItem.rightBarButtonItem = favoriteButtonItem
     }
     
@@ -109,39 +130,17 @@ class DetailVC: UIViewController {
             model.addData(name: recipeData.label ?? "",
                           ingredients: recipeData.ingredientLines?.map { "• \($0)" }.joined(separator: "\n") ?? "",
                           cuisineType: "Origin: \(recipeData.cuisineType?[0].uppercased() ?? "UNKNOWN")",
-                          mealType: recipeData.mealType?[0].capitalized ?? "",
+                          mealType: recipeData.dishType?[0].capitalized ?? "",
                           directions: "\(recipeData.url ?? "Sorry, The site is unreachable right now")",
                           macros: detailMacrosText,
-                          image: url)
-            
-//
-//
-//            guard let recipeData = recipeData?.recipe, let url = recipeData.image, let macroData = recipeData.totalNutrients else {return}
-//            let newObject = Items(context: self.context)
-//            newObject.name = recipeData.label
-//            newObject.ingredients = recipeData.ingredientLines?.map { "• \($0)" }.joined(separator: "\n")
-//            newObject.cuisineType = "Origin: \(recipeData.cuisineType?[0].uppercased() ?? "UNKNOWN")"
-//            newObject.mealType = recipeData.mealType?[0].capitalized
-//            newObject.directions = "\(recipeData.url ?? "Sorry, The site is unreachable right now")"
-//            var detailMacrosText = ""
-//            let macros = ["Fat": "FAT", "Carbs": "CHOCDF", "Fiber": "FIBTG", "Sugar": "SUGAR", "Protein": "PROCNT", "Cholesterol": "CHOLE"]
-//            for (title, macro) in macros {
-//                let quantity = String(format: "%.2f", macroData[macro]?.quantity ?? 0.0)
-//                let unit = macroData[macro]?.unit?.rawValue ?? ""                       //look at this algorithm
-//                detailMacrosText += "• \(title): \(quantity) \(unit)\n"
-//            }
-//            newObject.macros = detailMacrosText
-//            newObject.image = url
-//
-//            do {
-//                try context.save()
-//                print("succuss - save")
-//            } catch {
-//                print("error - addData")
-//            }
-        }
+                          image: url,
+                          yields: String(recipeData.yield ?? 0),
+                          calories: String(format: "%.0f", recipeData.calories ?? 0.0) + " Kcal"
+        )}
         isFavorite = !isFavorite
         favoriteButtonItem?.image = favoriteImage
-        
     }
+
 }
+
+

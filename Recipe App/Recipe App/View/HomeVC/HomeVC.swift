@@ -21,7 +21,7 @@ class HomeVC: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = true
-        fetchData()
+        fetchData(tableView: categoriesTableView)
     }
     
     override func viewDidLoad() {
@@ -37,8 +37,8 @@ class HomeVC: UIViewController {
         categoriesTableView.separatorInset = UIEdgeInsets(top: 0, left: 260, bottom: 0, right: 8)
     }
     
-    func fetchData() {
-        model.fetchData()
+    func fetchData(tableView: UITableView) {
+        model.fetchData(tableView: tableView)
     }
 }
 
@@ -54,9 +54,10 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         if let items = model.items?[indexPath.row] {
             cell.tableName.text = items.name
             cell.tableSource.text = items.cuisineType
-            cell.tableKcal.text = "000"
+            cell.tableKcal.text = items.calories
             cell.tableDishType.text = items.mealType
             cell.tableImage.kf.setImage(with: URL(string: items.image!))
+            cell.tableYields.text = items.yields
         }
         return cell
     }
@@ -65,18 +66,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         let vc = DetailVC()
         vc.indexPath = indexPath.row
         vc.isFavorite = true
+        vc.item = model.items?[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        let backgroundView = UIView()
-//        backgroundView.backgroundColor = .white
-//        backgroundView.layer.cornerRadius = 10
-//        backgroundView.layer.masksToBounds = true
-//        backgroundView.frame = CGRect(x: 10, y: 5, width: cell.frame.width - 20, height: cell.frame.height + 40)
-//        cell.contentView.addSubview(backgroundView)
-//        cell.contentView.sendSubviewToBack(backgroundView)
-        
-    }
-
 }

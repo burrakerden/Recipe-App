@@ -34,6 +34,16 @@ class SettingsVC: UIViewController {
     
     
     @IBAction func deleteButtonTapped(_ sender: UIButton) {
-        
+        guard let user = Auth.auth().currentUser else {return}
+        user.delete { error in
+            if let error = error {
+                print("Error while deleting account \(error.localizedDescription)")
+            } else {
+                print("Account deleted successfully")
+            }
+        }
+        if let scene = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+            scene.checkUser()
+        }
     }
 }
