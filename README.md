@@ -33,7 +33,7 @@ Overall, the app provides a user-friendly interface for browsing, creating, and 
 * UICollectionView
 * Custom CollectionView Cell
 * UITableView
-* Cunstom TableView Cell
+* Custom TableView Cell
 * Protocols
 * Extensions
 * Pagination
