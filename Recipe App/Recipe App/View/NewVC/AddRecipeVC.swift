@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseStorage
 import FirebaseCore
 import FirebaseFirestore
@@ -20,7 +21,8 @@ class AddRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
     @IBOutlet weak var recipeImage: UIImageView!
     
     @IBOutlet weak var textViewHC: NSLayoutConstraint!
-
+    
+    let mailRef = Auth.auth().currentUser?.email
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,7 +115,7 @@ class AddRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
                                             "directions": self.recipeDirection.text!,
                                             "date": FieldValue.serverTimestamp()]
                                 
-                                ref = db.collection("single").addDocument(data: post) { err in
+                                ref = db.collection(self.mailRef!).addDocument(data: post) { err in
                                     if let err = err {
                                         self.getAlert(mesagge: err.localizedDescription)
                                         print("Error adding document: \(err)")

@@ -21,6 +21,7 @@ class MyRecipesVC: UIViewController {
     var documentID = [String]()
     
     let db = Firestore.firestore()
+    let mailRef = Auth.auth().currentUser?.email
     
     @IBOutlet weak var MyRecipesTableView: UITableView!
     
@@ -48,7 +49,7 @@ class MyRecipesVC: UIViewController {
     
     func getDataFromFirestore() {
         
-        db.collection("single").order(by: "date", descending: true).addSnapshotListener { snapshot, error in
+        db.collection(mailRef!).order(by: "date", descending: true).addSnapshotListener { snapshot, error in
             if error != nil {
                 print(error!.localizedDescription)
             } else {

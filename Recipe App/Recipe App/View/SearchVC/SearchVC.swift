@@ -77,7 +77,7 @@ extension SearchVC: UICollectionViewDelegate, UICollectionViewDataSource {
         let mainData = recipeData[indexPath.row].recipe
         cell.homeName.text = mainData?.label
         cell.homeDishType.text = mainData?.dishType?[0].capitalized
-        cell.homeSource.text = "Source: " + (mainData?.source ?? "")
+        cell.homeSource.text = mainData?.source
         if let cal = mainData?.calories {
             if cal != 0 {
                 cell.homeKcal.text = " kcals: \(Int(cal)) "
