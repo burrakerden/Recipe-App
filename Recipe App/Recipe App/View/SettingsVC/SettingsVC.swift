@@ -10,6 +10,8 @@ import Firebase
 
 class SettingsVC: UIViewController {
     
+    @IBOutlet weak var userEmail: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -18,6 +20,7 @@ class SettingsVC: UIViewController {
     func setupUI() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Settings"
+        userEmail.text = Auth.auth().currentUser?.email
     }
     
     

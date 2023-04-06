@@ -13,7 +13,7 @@ class ViewModel {
     var nextPage: ((String) -> Void)?
     
     func getRecipeData(searchText: String) {
-        Service().getMovie(searchText: searchText){ result in
+        Service().getRecipe(searchText: searchText){ result in
             guard let data = result?.hits else {return}
             self.hits?(data)
             guard let nextData = result?.links?.next?.href else {return}

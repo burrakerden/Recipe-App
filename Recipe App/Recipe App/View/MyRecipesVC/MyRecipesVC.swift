@@ -101,6 +101,7 @@ extension MyRecipesVC: UITableViewDelegate, UITableViewDataSource {
         cell.myName.text = name[indexPath.row]
         cell.myImage.kf.setImage(with: URL(string: url))
         cell.myCategory.text = category[indexPath.row]
+        cell.myIngredients.text = ingredients[indexPath.row]
         return cell
     }
     
