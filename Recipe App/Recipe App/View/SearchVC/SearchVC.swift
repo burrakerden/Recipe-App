@@ -62,10 +62,7 @@ class SearchVC: UIViewController {
             self.nextPageURL = value
         }
     }
-    
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        searchBar.endEditing(true)
-//    }
+
 }
 
 extension SearchVC: UICollectionViewDelegate, UICollectionViewDataSource {

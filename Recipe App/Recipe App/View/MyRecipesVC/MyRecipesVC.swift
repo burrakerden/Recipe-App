@@ -120,7 +120,7 @@ extension MyRecipesVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .normal, title: "Delete") { _, _, _ in
-            self.db.collection("single").document(self.documentID[indexPath.row]).delete() { err in
+            self.db.collection(self.mailRef!).document(self.documentID[indexPath.row]).delete() { err in
                 if let err = err {
                     print("Error removing document: \(err.localizedDescription)")
                 } else {

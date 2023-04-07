@@ -14,10 +14,6 @@ class HomeVC: UIViewController {
     @IBOutlet weak var categoriesTableView: UITableView!
     
     var model = CoreDataModel()
-    
-//    var items : [Items]?
-//    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Items")
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = true

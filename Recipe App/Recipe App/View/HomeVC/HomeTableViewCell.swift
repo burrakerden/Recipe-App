@@ -16,11 +16,13 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var tableKcal: UILabel!
     @IBOutlet weak var tableYields: UILabel!
     
+    var data = Items()
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+//        setupCellUI(data: data)
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -28,10 +30,12 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     func setupCellUI(data: Items) {
-            tableName.text = data.name
-//            itemSize.text = data.size
-//            itemPrice.text = String(format: "%.2f", data.price) + " $"
-//            myImage.image = UIImage(data: data.image!)
+        tableName.text = data.name
+        tableSource.text = data.cuisineType
+        tableKcal.text = data.calories
+        tableDishType.text = data.mealType
+        tableImage.kf.setImage(with: URL(string: data.image!))
+        tableYields.text = data.yields
     }
     
 }
